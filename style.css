@@ -1,285 +1,203 @@
-/* Typography & Reset */
 * {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-  background-color: #ffffff;
-  color: #333333;
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+    background: #fff;
 }
 
-/* Header & Navbar Layout */
+section {
+    padding: 80px 0;
+}
+
+img {
+    width: 100%;
+}
+
 .navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px 40px;
-  background-color: #ffffff;
-  border-bottom: 1px solid #f0f0f0;
-  position: relative;
-  z-index: 100;
+    background: #fff;
+    border-bottom: 1px solid #ddd;
+    padding: 15px 0;
 }
 
-.logo-container {
-  display: flex;
-  flex-direction: column;
-  color: #7f0019; /* Signature MUJI Red */
-  font-weight: bold;
-  line-height: 1.1;
+.logo {
+    height: 40px;
 }
 
-.brand-en {
-  font-size: 32px;
-  letter-spacing: 1px;
+.nav-link {
+    color: #333 !important;
+    margin: 0 15px;
+    font-weight: 500;
 }
 
-.brand-jp {
-  font-size: 14px;
-  letter-spacing: 2px;
+.nav-link:hover {
+    color: #777 !important;
 }
 
-/* Base Desktop Nav Styles */
-.nav-links {
-  display: flex;
-  align-items: center;
-  gap: 35px;
-}
-
-.nav-links a {
-  text-decoration: none;
-  color: #7f0019;
-  font-size: 16px;
-  font-weight: 500;
-  transition: opacity 0.2s;
-}
-
-.nav-links a:hover {
-  opacity: 0.6;
-}
-
-/* Expandable Search Component Box */
-.search-container {
-  display: flex;
-  align-items: center;
-  border-bottom: 1px solid transparent;
-  transition: border-color 0.3s ease-in-out;
-  padding-bottom: 2px;
-}
-
-.search-container.active {
-  border-color: #333333;
-}
-
-.search-input {
-  width: 0;
-  opacity: 0;
-  border: none;
-  outline: none;
-  font-size: 15px;
-  padding: 0;
-  color: #7f0019;
-  transition: width 0.3s ease-in-out, opacity 0.2s ease-in-out, padding 0.3s;
-}
-
-.search-container.active .search-input {
-  width: 180px; /* Expand transition width smoothly */
-  opacity: 1;
-  padding: 0 8px;
-}
-
-.search-btn {
-  background: none;
-  border: none;
-  cursor: pointer;
-  color: #000000;
-  display: flex;
-  align-items: center;
-  padding: 4px;
-  transition: transform 0.2s;
-}
-
-.search-btn:hover {
-  opacity: 0.7;
-}
-
-/* Mobile Hamburger Button Styling Setup */
-.hamburger {
-  display: none;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 30px;
-  height: 21px;
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  padding: 0;
-  z-index: 110;
-}
-
-.hamburger span {
-  width: 100%;
-  height: 3px;
-  background-color: #7f0019;
-  transition: all 0.3s ease-in-out;
-}
-
-/* Main Layout Wrapper */
-.content-wrapper {
-  max-width: 800px;
-  margin: 60px auto;
-  padding: 0 24px;
-}
-
-.page-title {
-  text-align: center;
-  font-size: 48px;
-  font-weight: 400;
-  margin-bottom: 50px;
-  color: #000000;
-}
-
-/* Accordion Component Layout styling */
-.accordion-container {
-  max-width: 450px;
-  margin: 0 auto;
-}
-
-.accordion-item {
-  border-bottom: 1px solid #333333;
-  transition: opacity 0.3s ease;
-}
-
-/* Clean utility modifier for filtering search matches */
-.accordion-item.hidden {
-  display: none;
-}
-
-.accordion-header {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: none;
-  border: none;
-  padding: 14px 0;
-  font-size: 22px;
-  color: #000000;
-  cursor: pointer;
-  text-align: left;
-}
-
-.chevron {
-  width: 0;
-  height: 0;
-  border-left: 8px solid transparent;
-  border-right: 8px solid transparent;
-  border-top: 10px solid #7f0019;
-  transition: transform 0.3s ease;
-  margin-right: 5px;
-}
-
-.accordion-item.active .chevron {
-  transform: rotate(-180deg);
-}
-
-.accordion-content {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.3s ease-out;
-}
-
-.accordion-content p {
-  padding: 10px 0 20px 0;
-  color: #7f0019;
-  font-size: 15px;
-  line-height: 1.5;
-}
-
-/* --- Responsive Layout Breaks Mobile Screens (< 768px) --- */
-@media (max-width: 767px) {
-  .navbar {
-    padding: 15px 24px;
-  }
-  
-  .brand-en {
-    font-size: 26px;
-  }
-  
-  .brand-jp {
-    font-size: 11px;
-  }
-
-  .hamburger {
-    display: flex;
-  }
-
-  .hamburger.open span:nth-child(1) {
-    transform: translateY(9px) rotate(45deg);
-  }
-
-  .hamburger.open span:nth-child(2) {
-    opacity: 0;
-  }
-
-  .hamburger.open span:nth-child(3) {
-    transform: translateY(-9px) rotate(-45deg);
-  }
-
-  /* Convert Top Menu strip to standard Mobile Slide Overlay */
-  .nav-links {
-    position: fixed;
-    top: 0;
-    right: -100%;
-    width: 70%;
-    height: 100vh;
-    background-color: #ffffff;
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 100px 40px;
-    gap: 25px;
-    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.05);
-    transition: right 0.4s ease-in-out;
-  }
-
-  .nav-links.open {
-    right: 0;
-  }
-
-  .nav-links a {
+.search-icon {
     font-size: 20px;
-    width: 100%;
-    padding-bottom: 10px;
-    border-bottom: 1px solid #f5f5f5;
-  }
+    cursor: pointer;
+}
 
-  /* Search Adjustments on Mobile Overlay screens */
-  .search-container {
-    width: 100%;
-    margin-top: 15px;
-    border-bottom: 1px solid #7f0019;
-  }
-  
-  .search-input {
-    width: 100% !important;
-    opacity: 1 !important;
-    padding: 8px 0;
-  }
-  
-  .search-btn {
-    order: -1; 
-    padding-left: 0;
-  }
+#hero {
+    padding: 0;
+    margin-top: 70px;
+}
 
-  .page-title {
-    font-size: 36px;
-    margin-bottom: 30px;
-  }
-  
-  .accordion-header {
-    font-size: 18px;
-    padding: 12px 0;
-  }
+.hero-image {
+    height: 85vh;
+    object-fit: cover;
+    filter: brightness(65%);
+}
+
+.carousel-caption {
+    bottom: 25%;
+}
+
+.carousel-caption h1 {
+    font-size: 3rem;
+    font-weight: 700;
+}
+
+.carousel-caption p {
+    font-size: 1.1rem;
+    margin: 20px 0;
+}
+
+.carousel-caption .btn {
+    padding: 12px 30px;
+}
+
+.featured-image {
+    padding: 0;
+}
+
+.featured-image img {
+    height: 500px;
+    object-fit: cover;
+}
+
+.product-highlight img {
+    border-radius: 5px;
+}
+
+.product-highlight h2 {
+    margin: 15px 0;
+    font-weight: 600;
+}
+
+.product-highlight p {
+    color: #666;
+    line-height: 1.8;
+}
+
+.section-label {
+    font-size: 14px;
+    color: #999;
+    letter-spacing: 2px;
+}
+
+.featured-products {
+    background: #f8f8f8;
+}
+
+.product-card {
+    background: #fff;
+    transition: .3s;
+}
+
+.product-card img {
+    height: 320px;
+    object-fit: cover;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+}
+
+.product-content {
+    padding: 20px;
+}
+
+.product-content h4 {
+    margin-bottom: 10px;
+}
+
+.product-content p {
+    color: #666;
+    font-size: 15px;
+}
+
+.btn {
+    border-radius: 0;
+}
+
+.footer {
+    background: #fafafa;
+    color: #b63030;
+    padding: 40px 0;
+}
+
+.footer-logo {
+    height: 40px;
+    width: auto;
+}
+
+.footer p {
+    margin: 5px 0;
+}
+
+.social-icons a {
+    color: #fff;
+    font-size: 20px;
+    margin-left: 15px;
+    text-decoration: none;
+}
+
+.social-icons a:hover {
+    color: #ccc;
+}
+
+@media (max-width:768px) {
+
+    .carousel-caption {
+        bottom: 15%;
+    }
+
+    .carousel-caption h1 {
+        font-size: 2rem;
+    }
+
+    .carousel-caption p {
+        font-size: 1rem;
+    }
+
+    .hero-image {
+        height: 60vh;
+    }
+
+    .featured-image img {
+        height: 300px;
+    }
+
+    .product-card img {
+        height: 250px;
+    }
+
+    .footer {
+        text-align: center;
+    }
+
+    .social-icons {
+        margin-top: 20px;
+    }
+
+    .social-icons a {
+        margin: 0 10px;
+    }
+
 }

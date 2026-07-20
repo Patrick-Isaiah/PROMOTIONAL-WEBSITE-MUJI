@@ -108,7 +108,17 @@ img {
     display: block;
 }
 
+.footer {
+    background: #fafafa;
+    color: #b63030;
+    padding: 40px 0;
+}
+
 .footer-logo {
-    height: 60px;
+    height: 40px;
     width: auto;
+}
+
+.footer p {
+    margin: 5px 0;
 }
